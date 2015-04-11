@@ -1,0 +1,110 @@
+npm install grunt -g
+npm install grunt-cli -g
+加载任务插件
+npm install grunt-contrib-watch --save-dev 不仅在本地 还~自动将其安装到项目依赖 packag.json
+//
+npm install grunt-nodemon --save-dev
+//实时监听入口app.js
+npm install grunt-contrib-concurrent --save-dev  版本号同步
+//针对main
+gruntfile.js
+命令行
+grunt
+
+实现用户登录
+设计用户模型
+模式定义构造 mongoos.Schema接口定义用户文档结构 数据类型 增加中间件 静态方法
+传入一个对象 描述
+通过接口将内容负责给UserSchema
+
+user 
+name
+passwords
+加盐的密码 通过hash算法 单向 将任意数量数据转为固定长度的指纹 不可逆的md5
+md5 -s 'imooc'          其他加密sha
+npm install bcrypt --save 
+
+用户存入数据库
+用户模型和加密 ok
+将写好的schema发布为moogondb的模型
+路由里面接受从表单提交的数据 将它处理为对象 这个对象借助于模型生成一条用户数据 存储到数据库
+
+mongo
+use imooc
+show tables
+db.movies.find(()).count()
+db.movies.remove({})
+find().pretty()
+
+
+实例方法 实例上可以调用到
+静态方法 模型里
+
+会话
+跟踪用户 依据用户不同
+
+http又是无状态协议 数据交换完成 客户端 服务端关闭 无法跟踪会话
+一般用session cookie实现
+cookie客户端信息确认用户身份
+每次http请求带cookie 辨识用户 存在浏览器 键值对
+session服务器端确认客户 和cookie配合使用 sessionid
+
+开发中
+session存在内存 重启服务器清空
+如果存在硬盘则不会
+
+利用 mongodb 做会话的持久化 
+注销用户、用户退出功能实现
+会话持久逻辑预处理 
+调整目录结构、独立路由处理层
+
+meen
+
+配置入口文件
+开发环境报错信息
+
+开发时关注 从客户端到服务器有多少请求 什么类型 状态
+数据库查询情况
+入口文件 配置本地开发环境变量 控制看到提示信息
+express.app.config
+if else
+
+调整目录结构，彻底分离 mvc 层
+app models view 视图 数据和控制
+controllers index.js 负责和首页交互
+
+用户权限 中间件
+user.signinRequired, 
+user.adminRequired
+
+db.users.update({"_id" : ObjectId("55268ef0a825ec04190146f0")},{$set:{role:51}})
+
+评论 
+电影 通过id
+from 评论来自于
+to 被回复的人
+content 具体评论内容
+ObjectId 实现关联文档查询 主键 _id 
+mongoDB 没有关系数据库的join特性 
+封装了Populate 可以用在文档 模型 query对象上 
+path
+select 
+match 指定附加的查询条件 可选
+model 指定引用的model 可选
+options
+
+回复功能
+叠楼
+
+设计分类
+手动写 电影类型 String 不好
+专门建立个表
+catetory
+
+豆瓣api
+
+enctype 提交表单支持多种数据混合
+
+fs异步上传文件
+保证电影信息正确录入 要确保顺序 即上传完再录入 增加中间件（流水线中某个环节 对数据处理后交给下个流程）
+

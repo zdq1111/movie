@@ -1,0 +1,26 @@
+{
+  "name": "moviecom",
+  "version": "0.0.1",
+  "authors": [
+    "zdq1111 <115370499@qq.com>"
+  ],
+  "description": "movie",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "imooc"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}

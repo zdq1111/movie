@@ -1,0 +1,12 @@
+后端 node.js（驱动） mongoDB(数据库) 
+express(快速搭建web应用) mongoose（对mogoDB快速建模） jade（后端模板引擎） Moment.js（时间有关）npm
+前端 jQuery Bootstrap Bower 版本依赖
+环境
+less cssmin JSHint UglifyJS mocha  GRUNT集成
+
+Imooc/
+npm install express
+npm install jade
+npm install mongoose
+npm install bower -g
+bower install bootstap
